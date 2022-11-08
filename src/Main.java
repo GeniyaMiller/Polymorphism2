@@ -1,6 +1,6 @@
-import driver.B;
-import driver.C;
-import driver.D;
+import driver.DriverCategoryB;
+import driver.DriverCategoryC;
+import driver.DriverCategoryD;
 import transport.bus.Bus;
 import transport.car.Car;
 import transport.truck.Truck;
@@ -60,9 +60,9 @@ public class Main {
         opel.getBestTime();
 
 
-        B ivan = new B("Ivan", "B", 7, lada);
-        C bob = new C("Bob", "C", 14, toyota);
-        D maxim = new D("Maxim", "D", 3, wv);
+        DriverCategoryB ivan = new DriverCategoryB("Ivan", "B", 7, lada);
+        DriverCategoryC bob = new DriverCategoryC("Bob", "C", 14, toyota);
+        DriverCategoryD maxim = new DriverCategoryD("Maxim", "D", 3, wv);
 
         ivan.showInfoParticipate();
         bob.showInfoParticipate();
