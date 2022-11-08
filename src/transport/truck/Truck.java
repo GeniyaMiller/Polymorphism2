@@ -8,6 +8,12 @@ public class Truck extends Transport implements Competing {
         super(brand, model, volume);
     }
 
+    public enum LoadCapacity {N1, N2, N3 }
+    //N1 с полной массой до 3,5 тонн
+    //N2 с полной массой свыше 3,5 до 12 тонн
+    //N3 с полной массой свыше 12 тонн
+
+
     @Override
     public void start() {
         System.out.println("Нажать на педаль сцепления, завести двигатель, включить первую передачу, снять с ручного тормоза, нажать педаль газа, отпустить сцепление.");

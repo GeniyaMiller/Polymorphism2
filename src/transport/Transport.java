@@ -5,6 +5,8 @@ public abstract class Transport {
     private String model;
     private double volume;
 
+
+
     public Transport(String brand, String model, double volume) {
         if (brand == null || brand.isBlank() || brand.isEmpty()) {
             this.brand = "default";

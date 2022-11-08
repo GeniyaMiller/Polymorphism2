@@ -8,6 +8,16 @@ public class Car extends Transport implements Competing {
         super(brand, model, volume);
     }
 
+    public enum BodyType {Sedan,
+            Hatchback,
+            Coupe,
+            StationWagon,
+            SUV,
+            Crossover,
+            PickupTruck,
+            Van,
+            Minivan}
+
     @Override
     public void start() {
         System.out.println("Нажать на педаль сцепления, завести двигатель, включить первую передачу, снять с ручного тормоза, нажать педаль газа, отпустить сцепление.");

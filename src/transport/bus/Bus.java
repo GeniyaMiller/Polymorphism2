@@ -9,6 +9,13 @@ public class Bus extends Transport implements Competing {
         super(brand, model, volume);
     }
 
+    public enum Capacity {particularlySmall, small, average, large, especiallyLarge}
+
+        //particularlySmall,up to 10 seats
+        //small, up to 25
+        //average, 40-50;
+        //large, 60-80
+        //especiallyLarge(100-120)
     @Override
     public void start() {
         System.out.println("Нажать на педаль сцепления, завести двигатель, включить первую передачу, снять с ручного тормоза, нажать педаль газа, отпустить сцепление.");
