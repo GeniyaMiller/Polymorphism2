@@ -8,56 +8,28 @@ import transport.truck.Truck;
 public class Main {
     public static void main(String[] args) {
         System.out.println("CAR");
-        Car audi = new Car("Audi", "A8", 3.0);
-        Car lada = new Car("Lada", "Grande", 1.7);
-        Car bmw = new Car("BMW", "Z8", 3.0);
+        Car audi = new Car("Audi", "A8", 3.0, null);
+        Car lada = new Car("Lada", "Grande", 1.7, Car.BodyType.Minivan);
+        Car bmw = new Car("BMW", "Z8", 3.0, Car.BodyType.Coupe);
         System.out.println(audi.toString());
-        System.out.println(lada.toString());
-        System.out.println(bmw.toString());
-        audi.doMaxSpeed();
-        audi.doPitStop();
-        audi.getBestTime();
-        lada.doMaxSpeed();
-        lada.doPitStop();
-        lada.getBestTime();
-        bmw.doMaxSpeed();
-        bmw.doPitStop();
-        bmw.getBestTime();
+
 
 
         System.out.println("TRUCK");
-        Truck toyota = new Truck("Toyota", "F45", 3.0);
-        Truck mers = new Truck("Mercedes", "W32", 2.5);
-        Truck chevrolet = new Truck("Chevrolet", "M5", 2.7);
+        Truck toyota = new Truck("Toyota", "F45", 3.0, null);
+        Truck mers = new Truck("Mercedes", "W32", 2.5, Truck.LoadCapacity.N3);
+        Truck chevrolet = new Truck("Chevrolet", "M5", 2.7, Truck.LoadCapacity.N2);
         System.out.println(toyota.toString());
-        System.out.println(mers.toString());
-        System.out.println(chevrolet.toString());
-        toyota.doMaxSpeed();
-        toyota.doPitStop();
-        toyota.getBestTime();
-        mers.doMaxSpeed();
-        mers.doPitStop();
-        mers.getBestTime();
-        chevrolet.doMaxSpeed();
-        chevrolet.doPitStop();
-        chevrolet.getBestTime();
+
+
 
         System.out.println("BUS");
-        Bus mercedes = new Bus("Mercedes", "M45", 2.9);
-        Bus wv = new Bus("WV", "AM21", 3.2);
-        Bus opel = new Bus("Opel", "S8", 2.9);
+        Bus mercedes = new Bus("Mercedes", "M45", 2.9, null);
+        Bus wv = new Bus("WV", "AM21", 3.2, Bus.Capacity.large);
+        Bus opel = new Bus("Opel", "S8", 2.9, Bus.Capacity.particularlySmall);
         System.out.println(mercedes.toString());
-        System.out.println(wv.toString());
-        System.out.println(opel.toString());
-        mercedes.doMaxSpeed();
-        mercedes.doPitStop();
-        mercedes.getBestTime();
-        wv.doMaxSpeed();
-        wv.doPitStop();
-        wv.getBestTime();
-        opel.doMaxSpeed();
-        opel.doPitStop();
-        opel.getBestTime();
+
+
 
 
         DriverCategoryB ivan = new DriverCategoryB("Ivan", "B", 7, lada);

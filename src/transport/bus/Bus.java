@@ -4,18 +4,38 @@ import transport.Competing;
 import transport.Transport;
 
 public class Bus extends Transport implements Competing {
+    public enum Capacity {particularlySmall("до 10 мест"),
+        small("до 25"),
+        average("40–50"),
+        large("60–80"),
+        especiallyLarge("100–120 мест");
 
-    public Bus(String brand, String model, double volume) {
+    private String description;
+
+        Capacity(String description) {
+            if (description == null) {
+                System.out.println("Недостаточно информации!");
+                return;
+            }
+            this.description = description;
+        }
+
+        public String getDescription() {
+            return description;
+        }
+    }
+    private Capacity capacity;
+
+    public Bus(String brand, String model, double volume, Capacity capacity) {
         super(brand, model, volume);
+        if (capacity == null){
+            System.out.println("Недостаточно информации!");
+            return;
+        }
+        this.capacity = capacity;
     }
 
-    public enum Capacity {particularlySmall, small, average, large, especiallyLarge}
 
-        //particularlySmall,up to 10 seats
-        //small, up to 25
-        //average, 40-50;
-        //large, 60-80
-        //especiallyLarge(100-120)
     @Override
     public void start() {
         System.out.println("Нажать на педаль сцепления, завести двигатель, включить первую передачу, снять с ручного тормоза, нажать педаль газа, отпустить сцепление.");
@@ -41,5 +61,14 @@ public class Bus extends Transport implements Competing {
     @Override
     public void doMaxSpeed() {
         System.out.println("Максимальная скорость у автобуса " + getBrand() +" - ");
+    }
+
+    public Capacity getCapacity() {
+        return capacity;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + ", capacity " + capacity;
     }
 }

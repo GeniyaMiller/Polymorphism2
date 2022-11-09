@@ -4,19 +4,35 @@ import transport.Competing;
 import transport.Transport;
 
 public class Car extends Transport implements Competing {
-    public Car(String brand, String model, double volume) {
+    public enum BodyType {Sedan,
+        Hatchback,
+        Coupe,
+        StationWagon,
+        SUV,
+        Crossover,
+        PickupTruck,
+        Van,
+        Minivan;
+    }
+    private BodyType bodyType;
+    public Car(String brand, String model, double volume, BodyType bodyType) {
         super(brand, model, volume);
+        if (bodyType == null){
+            System.out.println("Данных по автомобилю не достаточно!");
+            return;
+        }
+        this.bodyType = bodyType;
     }
 
-    public enum BodyType {Sedan,
-            Hatchback,
-            Coupe,
-            StationWagon,
-            SUV,
-            Crossover,
-            PickupTruck,
-            Van,
-            Minivan}
+
+
+    public BodyType getBodyType() {
+        return bodyType;
+    }
+
+    public void setBodyType(BodyType bodyType) {
+        this.bodyType = bodyType;
+    }
 
     @Override
     public void start() {
@@ -44,5 +60,10 @@ public class Car extends Transport implements Competing {
     @Override
     public void doMaxSpeed() {
         System.out.println("Максимальная скорость у автомобиля " + getBrand() + " - ");
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + ", body type= " + bodyType;
     }
 }

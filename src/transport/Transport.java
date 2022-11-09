@@ -58,11 +58,11 @@ public abstract class Transport {
 
     @Override
     public String toString() {
-        return "Transport{" +
+        return "Transport " +
                 "brand='" + brand + '\'' +
                 ", model='" + model + '\'' +
                 ", volume=" + volume +
-                '}';
+                ' ';
     }
 }
 
