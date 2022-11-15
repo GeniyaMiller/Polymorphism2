@@ -44,6 +44,11 @@ public class Truck extends Transport implements Competing {
     }
 
     @Override
+    public boolean passDiagnostics() {
+        return Math.random() > 0.6;
+    }
+
+    @Override
     public void doPitStop() {
         System.out.println("Заправка грузовика " + getBrand() + " топливом, смена шин, быстрый ремонт и проверка технического состояния машины");
     }

@@ -45,6 +45,13 @@ public class Car extends Transport implements Competing {
         System.out.println("Выжимаем педаль тормоза и педаль сцепления до полной остановки, включаем нейтральную передачу, ставим на ручной тормоз, отпускаем педалиб выключаем двигатель.");
     }
 
+    @Override
+    public boolean passDiagnostics() {
+        return Math.random() > 0.5;
+    }
+
+
+
 
     @Override
     public void doPitStop() {

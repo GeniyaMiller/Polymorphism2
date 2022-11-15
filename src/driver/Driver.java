@@ -18,8 +18,9 @@ public abstract class Driver <T extends Transport & Competing> {
         if (license.equals("B") || license.equals("C") || license.equals("D")) {
             this.license = license;
         } else {
-            System.out.println("Увас нет водительского удостоверения");
+            throw new IllegalArgumentException("Необходимо указать тип прав!");
         }
+
         if (experience<0){
             this.experience = Math.abs(experience);
             return;

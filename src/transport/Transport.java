@@ -55,6 +55,8 @@ public abstract class Transport {
 
     public abstract void finish();
 
+    public abstract boolean passDiagnostics();
+
 
     @Override
     public String toString() {

@@ -1,6 +1,7 @@
 import driver.DriverCategoryB;
 import driver.DriverCategoryC;
 import driver.DriverCategoryD;
+import transport.Transport;
 import transport.bus.Bus;
 import transport.car.Car;
 import transport.truck.Truck;
@@ -12,6 +13,7 @@ public class Main {
         Car lada = new Car("Lada", "Grande", 1.7, Car.BodyType.Minivan);
         Car bmw = new Car("BMW", "Z8", 3.0, Car.BodyType.Coupe);
         System.out.println(audi.toString());
+        audi.passDiagnostics();
 
 
 
@@ -29,10 +31,11 @@ public class Main {
         Bus opel = new Bus("Opel", "S8", 2.9, Bus.Capacity.particularlySmall);
         System.out.println(mercedes.toString());
 
+        passDiagnostics(audi, lada, bmw,
+                        toyota, mers, chevrolet,
+                        mercedes, wv, opel);
 
-
-
-        DriverCategoryB ivan = new DriverCategoryB("Ivan", "B", 7, lada);
+        DriverCategoryB ivan = new DriverCategoryB("Ivan", "null", 7, lada);
         DriverCategoryC bob = new DriverCategoryC("Bob", "C", 14, toyota);
         DriverCategoryD maxim = new DriverCategoryD("Maxim", "D", 3, wv);
 
@@ -40,5 +43,22 @@ public class Main {
         bob.showInfoParticipate();
         maxim.showInfoParticipate();
 
+    }
+
+    public static void passDiagnostics(Transport... transports){
+        for (Transport transport : transports) {
+            diagnosticsTransport(transport);
+        }
+
+    }
+
+    public static void diagnosticsTransport(Transport transport){
+        try {
+            if(!transport.passDiagnostics()){
+                throw  new RuntimeException(transport.getClass() + " " + transport.getBrand() + " " + transport.getModel() + " не прошел диагностику");
+            }
+        } catch (RuntimeException e){
+            System.out.println(e.getMessage());
+        }
     }
 }
