@@ -1,9 +1,23 @@
 package transport;
 
+import driver.Driver;
+import mechanic.Mechanic;
+import sponsor.Sponsor;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public abstract class Transport {
     private String brand;
     private String model;
     private double volume;
+
+    private List<Driver<?>> drivers = new ArrayList<>();
+
+    private List<Sponsor> sponsors = new ArrayList<>();
+
+    private List<Mechanic<?>> mechanics = new ArrayList<>();
 
 
 
@@ -26,6 +40,25 @@ public abstract class Transport {
         this.volume = volume;
 
     }
+
+    public void addDriver(Driver<?>... driver){
+        this.drivers.addAll(Arrays.asList(driver));
+    }
+    public void addSponsor(Sponsor... sponsor){
+        this.sponsors.addAll(Arrays.asList(sponsor));
+    }
+    public void addMechanic(Mechanic<?>... mechanic){
+        this.mechanics.addAll(Arrays.asList(mechanic));
+    }
+
+    public abstract void start();
+
+    public abstract void finish();
+
+    public abstract boolean passDiagnostics();
+
+    public abstract void fixCar();
+
 
     public String getBrand() {
         return brand;
@@ -51,12 +84,17 @@ public abstract class Transport {
         this.volume = volume;
     }
 
-    public abstract void start();
+    public List<Driver<?>> getDrivers() {
+        return drivers;
+    }
 
-    public abstract void finish();
+    public List<Sponsor> getSponsors() {
+        return sponsors;
+    }
 
-    public abstract boolean passDiagnostics();
-
+    public List<Mechanic<?>> getMechanics() {
+        return mechanics;
+    }
 
     @Override
     public String toString() {
@@ -66,5 +104,7 @@ public abstract class Transport {
                 ", volume=" + volume +
                 ' ';
     }
+
+
 }
 

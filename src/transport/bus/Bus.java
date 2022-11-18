@@ -54,6 +54,11 @@ public class Bus extends Transport implements Competing {
     }
 
     @Override
+    public void fixCar() {
+        System.out.println("Автобус " + getBrand() + " " + getModel() + " починен!");
+    }
+
+    @Override
     public void doPitStop() {
         System.out.println("Заправка автобуса " + getBrand() + " топливом, смена шин, быстрый ремонт и проверка технического состояния машины");
     }
