@@ -1,5 +1,7 @@
 package sponsor;
 
+import java.util.Objects;
+
 public class Sponsor {
     private String name;
 
@@ -20,6 +22,19 @@ public class Sponsor {
 
     public int getAmount() {
         return amount;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Sponsor sponsor = (Sponsor) o;
+        return Objects.equals(name, sponsor.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 
     @Override
